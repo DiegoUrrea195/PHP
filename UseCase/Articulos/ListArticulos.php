@@ -1,6 +1,9 @@
 <?php
-require("MySQLConnection.php");
-require("CtrlArticulo.php");
+$var = explode("\\", dirname(__FILE__));
+set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
+
+require("Controllers/MySQLConnection.php");
+require("Controllers/CtrlArticulo.php");
 
 $ctrl = new CtrlArticulo();
 

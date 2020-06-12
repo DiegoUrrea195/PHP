@@ -1,4 +1,7 @@
 <?php
+    $var = explode("\\", dirname(__FILE__));
+    set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
+
     require("View/partials/header.php");
     require("View/partials/navbar.php");
 ?>
@@ -7,7 +10,10 @@
 
 <div class="container dark">
     <?php
-        require("Session.php");
+    $var = explode("\\", dirname(__FILE__));
+    set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
+
+        require("Session/Session.php");
         if($_SESSION["id"] == 1) {
            echo "<a href='AddNewArticuloView.php' class='btn btn-success btn-block'>Añadir Nuevo Articulo</a>";
         }
@@ -26,7 +32,10 @@
                 </tr>
             </thead>
             <tbody>
-                <?php  require("ListArticulos.php") ?>
+                <?php  
+                $var = explode("\\", dirname(__FILE__));
+                set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
+                require("UseCase/Articulos/ListArticulos.php") ?>
             </tbody>
 </table>
 </div>

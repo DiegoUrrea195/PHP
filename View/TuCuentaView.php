@@ -1,17 +1,20 @@
 <?php
+$var = explode("\\", dirname(__FILE__));
+set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
 
-   require("MySQLConnection.php");
+    require("Controllers/MySQLConnection.php");
+    require("Session/Session.php");
     require("View/partials/header.php");
-    require("CtrlUsuario.php");
+    require("Controllers/CtrlUsuario.php");
 
-    $ID = $_GET["id"];
+    $ID = $_SESSION["id"];
     $ctrl = new CtrlUsuario();
 
     $user = $ctrl->getUsuarioById($ID);
 
 echo "<div class='container'>";
 echo "<div class='container border mt-5'>";
-echo    "<form class='form-signin' action='UpdateUser.php?id=$ID' method='POST'>";
+echo    "<form class='form-signin' action='../UseCase/Admin/UpdateUser.php?id=$ID' method='POST'>";
 echo        "<div class='text-center mb-4'>";
 echo            "<h1 class='h2 '>Editar</h1>";
 echo        "</div>";

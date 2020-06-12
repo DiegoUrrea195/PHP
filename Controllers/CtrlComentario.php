@@ -1,4 +1,6 @@
 <?php
+$var = explode("\\", dirname(__FILE__));
+set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
 
 require("Entity/Comentario.php");
 
@@ -41,6 +43,20 @@ class CtrlComentario {
             $flag = true;
         }else {
            echo $conn->error;
+        }
+        $conn->close();
+        return $flag;
+    }
+
+    public function deleteComentariosById($id) {
+        $conn = $this->connection->getConnection();
+        $sql = "DELETE FROM Comentario WHERE Id_Usuario = $id";
+
+        $flag = false;
+        if($conn->query($sql) == true) {
+            $flag = true;
+        }else {
+            echo $conn->error;
         }
         $conn->close();
         return $flag;

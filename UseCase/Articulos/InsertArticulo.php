@@ -1,6 +1,9 @@
 <?php
-require("MySQLConnection.php");
-require("CtrlArticulo.php");
+$var = explode("\\", dirname(__FILE__));
+set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
+
+require("Controllers/MySQLConnection.php");
+require("Controllers/CtrlArticulo.php");
 
 $ID_USER = 1;
 $NOMBRE_ARTICULO = $_POST["nombre"];
@@ -17,12 +20,8 @@ $IMG_CONTENIDO = addslashes(file_get_contents($IMAGEN_ARTICULO));
 
 $ctrlArticulo = new CtrlArticulo();
 $Articulo = new Articulo(null, $NOMBRE_ARTICULO, $DESCRIPCCION_ARTICULO, $ID_USER, $IMG_CONTENIDO);
-if($ctrlArticulo->insert($Articulo) == false){
-    echo "Nel";
-}else {
-
-    header("Location: ArticulosListView.php");
-}
+$ctrlArticulo->insert($Articulo);
+header("Location:  http://localhost/$var[3]/View/ArticulosListView.php");
 
 
 

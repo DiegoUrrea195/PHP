@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
     <p class="navbar-brand">Articulos</p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse">
@@ -19,15 +18,16 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Options</a>
                 <div class="dropdown-menu">
                     <?php 
-                    
-                        require("session.php");
+                        $var = explode("\\", dirname(__FILE__));
+                        set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
+                        require("Session/session.php");
                         if($_SESSION["id"] == 1) {
                             $r = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
                             echo "<a href='AdminView.php' class='dropdown-item'>Admin</a>";
                         }
 
                     ?>
-                    <a href="closeSession.php" class="dropdown-item">Sign out</a>
+                    <a href="../Session/closeSession.php" class="dropdown-item">Sign out</a>
                 </div>
             </li>
         </ul>

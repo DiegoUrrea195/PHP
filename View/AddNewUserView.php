@@ -1,25 +1,27 @@
 <?php
+$var = explode("\\", dirname(__FILE__));
+set_include_path("$var[0]\\"."$var[1]\\"."$var[2]\\"."$var[3]");
+
 require("View/partials/header.php");
 ?>
 
 <div class="container">
 <div class="container border mt-5">
-    <form class="form-signin" action="InsertArticulo.php" method="POST" enctype="multipart/form-data">
+    <form class="form-signin" action="../UseCase/Admin/InsertUser.php" method="POST">
         <div class="text-center mb-4">
             <img src="../public/images/external-content.duckduckgo.com.png" alt="" class="mb-4" width="72" height="72">
-            <h1 class="h2 ">Nuevo Articulo</h1>
+            <h1 class="h2 ">Nuevo usuario</h1>
         </div>
         <div class="form-label-group">
             <input type="text" name ="nombre" class="form-control" placeholder="Nombre">
             <br>
         </div>
-        <div class="form-label-group ">
-            <textarea name="descripcion" id="" cols="150" rows="10">Texto</textarea>
-            <br>
+        <div class="form-label-group">
+            <input type="email" name="correo" class="form-control" placeholder="Email">
             <br>
         </div>
         <div class="form-label-group">
-            <input type="file" name="imagen" class="form-control" id = "imagen">
+            <input type="password" name="contraseña" class="form-control" placeholder="Password">
             <br>
         </div>
         <button class="btn btn-lg btn-success btn-block" type="submit">Registrar</button>
