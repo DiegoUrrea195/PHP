@@ -1,6 +1,6 @@
 <?php
-
-require("Controllers/CtrlClient.php");
+require("MySQLConnection.php");
+require("CtrlClient.php");
 
 $ID_USER = $_GET["id"];
 

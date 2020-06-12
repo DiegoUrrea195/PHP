@@ -1,21 +1,17 @@
 <?php
 
-class User {
+class Usuario {
     
-    private $id;
-    private $nombre;
-    private $apellido;
-    private $telefono;
-    private $direccion;
-    private $fecha_nacimiento;
+    private $Id;
+    private $Nombre;
+    private $Contrasena;
+    private $Correo;
 
-    public function __construct($id, $nombre, $apellido, $telefono, $direccion, $fecha_nacimiento){
-        $this->id = $id;
-        $this->nombre = $nombre;
-        $this->apellido = $apellido;
-        $this->direccion = $direccion;
-        $this->telefono = $telefono;
-        $this->fecha_nacimiento = $fecha_nacimiento;
+    public function __construct($id, $nombre, $contrasena, $correo){
+        $this->Id = $id;
+        $this->Nombre = $nombre;
+        $this->Contrasena = $contrasena;
+        $this->Correo = $correo;
     }
 
     public function __destruct() {
@@ -23,47 +19,31 @@ class User {
     }
 
     public function getId() {
-        return $this->id;
+        return $this->Id;
     }
     
     public function getNombre() {
-        return $this->nombre;
+        return $this->Nombre;
     }
 
     public function setNombre($nombre) {
-        $this->nombre = $nombre;
+        $this->Nombre = $nombre;
     }
 
-    public function getApellido() {
-        return $this->apellido;
+    public function getContrasena() {
+        return $this->Contrasena;
     }
 
-    public function setApellido($lastName) {
-        $this->apellido = $lastName;
+    public function setContrasena($contra) {
+        $this->Contrasena = $contra;
     }
 
-    public function getDireccion() {
-        return $this->direccion;
+    public function getCorreo() {
+        return $this->Correo;
     }
 
-    public function setDireccion($direccion) {
-        $this->direccion = $direccion;
-    }
-
-    public function getTelefono() {
-        return $this->telefono;
-    }
-
-    public function setTelefono($telefono) {
-        $this->telefono = $telefono;
-    }
-
-    public function getFechaNacimiento() {
-        return $this->fecha_nacimiento;
-    }
-
-    public function setFechaNacimiento($fecha) {
-        $this->fecha_nacimiento = $fecha;
+    public function setCorreo($correo) {
+        $this->Correo = $correo;
     }
 }
 
